@@ -7,13 +7,13 @@ const Contact = () => {
       <ul className="space-y-3 mt-5">
         <li className="flex flex-col space-y-2">
           <span>✉️ Email</span>
-          <span className="text-sm underline text-gray-400">
+          <span className="text-sm underline text-gray-500">
             wjdrbwo1206@naver.com
           </span>
         </li>
         <li className="flex flex-col space-y-2">
           <span>😺 Github</span>
-          <span className="text-sm underline text-gray-400">
+          <span className="text-sm underline text-gray-500">
             <a
               target="_blank"
               href="https://github.com/GyuJae"
@@ -25,7 +25,7 @@ const Contact = () => {
         </li>
         <li className="flex flex-col space-y-2">
           <span>📗 Velog</span>
-          <span className="text-sm underline text-gray-400">
+          <span className="text-sm underline text-gray-500">
             <a
               target="_blank"
               href="https://velog.io/@nuo"

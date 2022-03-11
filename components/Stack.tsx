@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { cls } from "@libs/utills";
 
 interface IStackItem {
   stackName: string;
@@ -10,10 +11,30 @@ const stackData: IStackItem[] = [
   {
     stackName: "Javascript / Typescript",
     stackInfs: [
-      "Swift를 사용하여 iOS 앱을 개발해 본 경험이 있습니다.",
-      "Swift에서 지향하는 객체지향, 함수형 프로그래밍에 대해 이해하고 있습니다.",
+      "Javascript or Typescript를 이용하여 Web을 만들어 본 경험이 있습니다.",
+      "프론트엔드 HTML, CSS3, Pug와 백엔드 NodeJS, MongoDB, Express를 활용하여 Youtube Clone 코딩을 한 경험이 있습니다.",
       "개발문서를 읽고 원하는 기능을 개발할 수 있습니다.",
     ],
+  },
+  {
+    stackName: "NestJS",
+    stackInfs: [
+      "Nest JS를 사용하여 Web을 만들어 본 경험이 있습니다.",
+      "주로 Prisma, Graphql, PlantScale과 함께 사용하고 있습니다.",
+      "개발문서를 읽고 원하는 기능을 개발할 수 있으며 제일 자주 사용하는 NodeJS Framework 입니다.",
+    ],
+  },
+  {
+    stackName: "React / NextJS",
+    stackInfs: [
+      "주로 ReactJS을 통해 Frontend를 개발합니다.",
+      "CSS 작업을 할 때에는 Tailwindcss 또는 Styled Components를 사용합니다.",
+      "NextJs만을 사용하여 Fullstack web 개발해 본 경험이 있습니다.",
+    ],
+  },
+  {
+    stackName: "Git",
+    stackInfs: ["Git을 활용한 소스코드 버전 관리 및 협업을 할 수 있습니다."],
   },
 ];
 
@@ -28,7 +49,10 @@ const StackItem: React.FC<IStackItem> = ({ stackName, stackInfs }) => {
     >
       <motion.div
         onClick={() => setIsOpen((prev) => !prev)}
-        className="text-base font-semibold cursor-pointer mb-2"
+        className={cls(
+          "text-base font-semibold cursor-pointer",
+          isOpen ? "mb-2" : ""
+        )}
         layout
       >
         {stackName}
@@ -57,7 +81,7 @@ const Stack = () => {
     <div>
       <span className="text-lg font-semibold">🛠️ Stacks 기술 스택</span>
       <AnimateSharedLayout>
-        <motion.ul layout className="px-4 mt-7 space-y-10">
+        <motion.ul layout className="px-4 mt-7 space-y-6">
           {stackData.map((stack) => (
             <StackItem key={stack.stackName} {...stack} />
           ))}

@@ -2,6 +2,7 @@ import Contact from "@compoents/Contact";
 import ContentLayout from "@compoents/ContentLayout";
 import Education from "@compoents/Education";
 import IndexHead from "@compoents/IndexHead";
+import NomadCoder from "@compoents/NomadCoder";
 import Projects from "@compoents/Projects";
 import Stack from "@compoents/Stack";
 import type { NextPage } from "next";
@@ -18,9 +19,7 @@ const Home: NextPage = () => {
         <Stack />
         <Projects />
         <Education />
-        <div>
-          <span className="text-lg font-semibold">🔔 Nomad Coder</span>
-        </div>
+        <NomadCoder />
       </ContentLayout>
     </div>
   );
