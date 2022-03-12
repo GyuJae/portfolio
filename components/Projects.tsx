@@ -1,9 +1,10 @@
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 interface IProject {
   id: number;
-  video: string;
+  siteImg: string;
   title: string;
   categories: string[];
   githubURL: string;
@@ -13,7 +14,7 @@ interface IProject {
 const data: IProject[] = [
   {
     id: 1,
-    video: "",
+    siteImg: "/projects/youtube.png",
     title: "Youtube",
     categories: [
       "Pug",
@@ -28,7 +29,7 @@ const data: IProject[] = [
   },
   {
     id: 2,
-    video: "",
+    siteImg: "/projects/twitter.png",
     title: "Twitter",
     categories: ["ReactJS", "Firebase"],
     githubURL: "https://github.com/GyuJae/twitter",
@@ -36,7 +37,7 @@ const data: IProject[] = [
   },
   {
     id: 3,
-    video: "",
+    siteImg: "/projects/misemise.png",
     title: "MiseMise App",
     categories: ["React Native", "Expo"],
     githubURL: "https://github.com/GyuJae/misemise",
@@ -44,7 +45,7 @@ const data: IProject[] = [
   },
   {
     id: 4,
-    video: "",
+    siteImg: "/projects/uber-eats.png",
     title: "Uber Eats",
     categories: [
       "NestJS",
@@ -56,15 +57,30 @@ const data: IProject[] = [
     ],
     githubURL:
       "https://github.com/GyuJae/uber-eats-web , https://github.com/GyuJae/uber-eats-backend",
-    websiteURL: "https://expo.dev/@gyujae/misemiseandweather",
   },
   {
     id: 5,
-    video: "",
+    siteImg: "/projects/carrot-market.png",
     title: "Carrot Market",
     categories: ["NextJS", "Prisma", "Tailwind", "Serverless"],
     githubURL: "https://github.com/GyuJae/carrot-merket",
-    websiteURL: "https://expo.dev/@gyujae/misemiseandweather",
+  },
+  {
+    id: 6,
+    siteImg: "/projects/netflix.png",
+    title: "NetFlix",
+    categories: ["ReactJS", "Framer Motion", "Recoil", "React Query"],
+    githubURL: "https://github.com/GyuJae/nomflix",
+    websiteURL: "https://suspicious-easley-55fe47.netlify.app",
+  },
+  {
+    id: 7,
+    siteImg: "/projects/JobScrapper.png",
+    title: "Job Scrapper",
+    categories: ["ReactJS", "Golang"],
+    githubURL:
+      "https://github.com/GyuJae/job-scrapper-backend , https://github.com/GyuJae/jobscrapper_web",
+    websiteURL: "https://angry-montalcini-0dbb83.netlify.app/",
   },
 ];
 
@@ -89,8 +105,13 @@ const Item: React.FC<IProject> = (project) => {
           className="project-content"
           layoutId={`project-container-${id}`}
         >
-          <motion.div className="h-80 w-[full] bg-gray-300 rounded-sm z-[2]">
-            Project Image
+          <motion.div className="h-80 w-[full] relative bg-[#1c1c1e] rounded-sm z-[2]">
+            <Image
+              src={project.siteImg}
+              alt="siteImg"
+              layout="fill"
+              className="absolute object-contain"
+            />
           </motion.div>
           <motion.div className="w-[full] text-white shadow-sm rounded-sm z-[2]">
             <motion.div className="px-4 py-2 flex flex-col space-y-2">
@@ -114,7 +135,7 @@ const Item: React.FC<IProject> = (project) => {
                   rel="noopener noreferrer"
                 >
                   <span className="font-semibold">😺 Github: </span>{" "}
-                  <span className="text-xs cursor-pointer hover:underline">
+                  <span className="text-xs cursor-pointer hover:underline z-50">
                     {project.githubURL}
                   </span>
                 </a>
@@ -154,11 +175,18 @@ const Projects = () => {
               <motion.div
                 key={item.id}
                 layoutId={`project-container-${item.id}`}
-                className=" h-48 bg-gray-300 shadow-sm rounded-md hover:shadow-lg cursor-pointer"
+                className=" h-48 relative bg-gray-300 shadow-sm rounded-md hover:shadow-lg cursor-pointer"
                 onClick={() => {
                   router.push(`/?id=${item.id}`, undefined, { scroll: false });
                 }}
-              />
+              >
+                <Image
+                  src={item.siteImg}
+                  className="absolute object-cover rounded-md"
+                  layout="fill"
+                  alt="siteImg"
+                />
+              </motion.div>
               {id && (
                 <AnimatePresence>
                   <Item {...data.filter((project) => project.id === +id)[0]} />
