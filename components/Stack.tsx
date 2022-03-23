@@ -27,6 +27,14 @@ const stackData: IStackItem[] = [
   {
     stackName: "React / NextJS",
     stackInfs: [
+      "주로 React Native을 통해 Native App를 개발합니다.",
+      "React Native를 이용하여 애플리케이션을 만들어본 경험이 있습니다.",
+      "expo를 이용하여 함께 개발을 합니다.",
+    ],
+  },
+  {
+    stackName: "React Native",
+    stackInfs: [
       "주로 ReactJS을 통해 Frontend를 개발합니다.",
       "CSS 작업을 할 때에는 Tailwindcss 또는 Styled Components를 사용합니다.",
       "NextJs만을 사용하여 Fullstack web 개발해 본 경험이 있습니다.",
