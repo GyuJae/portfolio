@@ -23,7 +23,7 @@ const Contact = () => {
             </a>
           </span>
         </li>
-        <li className="flex flex-col space-y-2">
+        {/* <li className="flex flex-col space-y-2">
           <span>📗 Velog</span>
           <span className="text-sm underline text-gray-500">
             <a
@@ -34,6 +34,10 @@ const Contact = () => {
               https://velog.io/@nuo
             </a>
           </span>
+        </li> */}
+        <li className="flex flex-col space-y-2">
+          <span>📞 Phone Number</span>
+          <span className="text-sm underline text-gray-500">010-2458-3208</span>
         </li>
       </ul>
       <div className="mt-5 flex flex-col space-y-2">

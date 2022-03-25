@@ -109,7 +109,7 @@ const Item: React.FC<IProject> = (project) => {
         >
           <motion.div className="py-3 flex justify-end px-7">
             <motion.div
-              className="text-gray-300 cursor-pointer"
+              className="text-gray-400 cursor-pointer hover:text-gray-200 hover:scale-105"
               onClick={() => router.push("/", undefined, { scroll: false })}
             >
               <motion.svg
@@ -139,7 +139,7 @@ const Item: React.FC<IProject> = (project) => {
               <motion.span className="text-lg font-semibold">
                 {project.title}
               </motion.span>
-              <motion.ul className="flex space-x-4">
+              <motion.ul className="flex space-x-2">
                 {project.categories.map((category, idx) => (
                   <motion.li
                     key={idx + category}

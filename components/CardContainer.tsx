@@ -16,22 +16,6 @@ const cardVariants: Variants = {
   },
 };
 
-const projectVariants: Variants = {
-  offscreen: {
-    y: -100,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
-};
-
 interface ICardContainer {
   children: React.ReactNode;
   isProjects?: boolean;
@@ -45,8 +29,8 @@ const CardContainer: React.FC<ICardContainer> = ({
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
-      variants={isProjects ? projectVariants : cardVariants}
+      viewport={{ once: true, amount: isProjects ? 0.5 : 0.8 }}
+      variants={cardVariants}
     >
       {children}
     </motion.div>

@@ -8,13 +8,21 @@ import Projects from "@compoents/Projects";
 import Stack from "@compoents/Stack";
 
 import type { NextPage } from "next";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
-    <div className="">
+    <div>
       <IndexHead />
       <div className="h-44 bg-black relative">
-        <div className="w-24 h-24 rounded-full bg-gray-300 absolute -bottom-12 left-[20%]" />
+        <div className="w-28 h-28 rounded-md bg-gray-300 absolute -bottom-14 left-[20%]">
+          <Image
+            src={"/avatar.jpg"}
+            className="absolute object-cover rounded-md"
+            layout="fill"
+            alt="siteImg"
+          />
+        </div>
       </div>
       <ContentLayout>
         <CardContainer>
